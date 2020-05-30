@@ -1,0 +1,8 @@
+#Sat May 30 14:23:14 CEST 2020
+com.ibm.websphere.ltpa.version=1.0
+com.ibm.websphere.ltpa.3DESKey=oW7Elw1ZHAADUROizc7Ls8Ef1ttRtfWl3/cGjIn+mR4\=
+com.ibm.websphere.ltpa.PrivateKey=2QD5WDrwA5hyFkErANIdudeX5EMU6tPlIgRuFUNnNvR107oti/b/ZzePgWx/9UZr0ffAfkTmjHmaqB2gqTSB9WHF57tbXCEutFQ/t14Ci7TJu8zBwbbpVHOjB1kM4WHJFLs6PT9Khz1LNmUNbMS04KUNrDPCpSJGvM9/XghGKacE+rz1kbx30KI+hwwLZ6hP6TceNENaC7ir9otp0apf0PpGSyoqeVAKf1/Qghe57bYnq6M02+78U+FYoduYyqDpsoQXoKsZHeQG016Dw5s/O36L7A90HBnzRtWtxQb1CMc2K+DLZzFVtNnOGpjLQS6Z9aKG7sZYNlaM+VtSRWYeufWbYpGXtfiBU8r+mjpRP98\=
+com.ibm.websphere.CreationHost=localhost
+com.ibm.websphere.ltpa.Realm=defaultRealm
+com.ibm.websphere.ltpa.PublicKey=AKOf7UVJEqaf8DMrXsuAqmOJ61G2jYbOkJJhJX06vCrPSHVlcq3S14SESHBuHYCgKA6Whx+Q697E/rNNrKhNy7PIBWI8ZRsGoezsHMcHA3IcOxeuLM7Nrrcec34d9b+9IJOmF4xSiYE9E4LJgSrjKKopql7CIN8un20ghL1dcP8NAQAB
+com.ibm.websphere.CreationDate=Sat May 30 14\:23\:14 CEST 2020

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Aufgabe 1</title>
+<script type="text/javascript">
+ function addColor()
+ {
+	var color  = document.querySelector("#color").value; 
+	 
+	var select = document.querySelector("#colorSelect");
+	var option = document.createElement("option");
+	option.innerHTML = color;
+	select.append( option );
+	
+	document.querySelector("#color").value = "";
+ }
+</script>
+
+</head>
+<body>
+  <select id="colorSelect">
+    <option>Red</option>
+    <option>Green</option>
+    <option>White</option>
+    <option>Black</option>
+  </select>
+  <p>
+    Neue Farbe: <input id="color" type="text" name="color"><br>
+    <button onclick="addColor()">Farbe hinzufügen</button><br>
+</body>
+</html>
