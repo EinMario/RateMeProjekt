@@ -1,7 +1,5 @@
 package hskl.swtp;
 
-import hskl.swtp.rateme.Main;
-
 import javax.inject.Singleton;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,7 +12,11 @@ import javax.ws.rs.Path;
 public class HelloController {
 
     @GET
+    @Path("/test")
     public String sayHello() {
+        System.out.println("Test");
         return "Hello World";
     }
+
+
 }

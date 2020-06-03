@@ -1,4 +1,4 @@
-#Sat May 30 14:22:43 CEST 2020
+#Tue Jun 02 16:19:42 CEST 2020
 lib/features/com.ibm.websphere.appserver.restHandler-1.0.mf=2cee00507fa02ce60d37e2e19a09bcf0
 lib/com.ibm.ws.org.joda.time.1.6.2_1.0.40.jar=32568e6e3b63bd979fc7ea3c89febc07
 lib/com.ibm.websphere.rest.handler_1.0.40.jar=438dfd5b5186f622553b438e02b9180b

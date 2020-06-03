@@ -15,109 +15,7 @@
 
 <script src="js/functions.js"></script>
 
-<script type="text/javascript">
-
-var nameOk = false;
-var telefonOk = false;
-var emailOk = false;
-
-function checkIfAllOk()
-{
-	let allOk = nameOk && emailOk;
-	if( allOk )
-	{
-		document.querySelector("#regist").disabled=false;
-	}
-	else
-    {
-		document.querySelector("#regist").disabled=true;
-    }
-}
-function checkNameOnFocus()
-{
-	document.querySelector("#errorName").innerHTML = "";
-}
-
-function checkFNameOnBlur()
-{
-	if( document.querySelector("#fname").value.length == 0 )
-		return;
-
-	if( nameOk == false )
-	{
-	   document.querySelector("#errorName").innerHTML = "Format des Namens ist falsch";
-	}
-}
-
-function checkLNameOnBlur()
-{
-	if( document.querySelector("#lname").value.length == 0 )
-		return;
-
-	if( nameOk == false )
-	{
-	   document.querySelector("#errorName").innerHTML = "Format des Namens ist falsch";
-	}
-}
-
-function checkName()
-{
-	let lnameInput = document.querySelector("#name").value;
-	let fnameInput = document.querySelector("#name").value;
-	if( fnameInput.length === 0 || lnameInput.length === 0)
-	   return;
-
-	let nameRegEx = /^[A-ZÄÖÜ][a-zäöüß]+(-[A-ZÄÖÜ][a-zäöüß]+)*$/;
-	if( nameRegEx.test( lnameInput ) == false || nameRegEx.test( fnameInput ) == false)
-	{
-		nameOk = false;
-	}
-	else
-	{
-		nameOk = true;
-	}
-	checkIfAllOk();
-}
-
-
-function checkEmailOnFocus()
-{
-	document.querySelector("#errorEmail").innerHTML = "";
-}
-
-function checkEmailOnBlur()
-{
-	if( document.querySelector("#email").value.length == 0 )
-		return;
-
-	if( emailOk == false )
-	{
-	  document.querySelector("#errorEmail").innerHTML = "Format der E-Mail-Adresse ist falsch";
-	}
-}
-
-function checkEmail()
-{
-	emailOk = false;
-
-	let emailInput = document.querySelector("#email").value;
-	if( emailInput.length === 0 )
-		return;
-
-	let emailRegEx = /^\w{4}\d{4,}@stud\.(hs-kl|fh-kl)\.de$/;
-	if( emailRegEx.test( emailInput ) == false )
-	{
-		emailOk = false;
-	}
-	else
-	{
-		emailOk = true;
-	}
-
-	checkIfAllOk();
-}
-
-</script>
+<script src="js/check.js"></script>
 
 </head>
 <body>
@@ -154,14 +52,13 @@ function checkEmail()
 		<tr>
 			<td>Straße</td>
 			<td><input type="text" id="street" size="25" /> <span
-					style="float: right;"> Nr: <input type="text" name="streetNr"
-													  size="4" />
+					style="float: right;"> Nr: <input type="text" name="streetNr" size="4" />
 			</span></td>
 		</tr>
 		<tr>
 			<td>PLZ</td>
-			<td><input type="text" name="zip" size="5" /> <span
-					style="float: right;"> Ort <input type="text" name="city"
+			<td><input type="text" id="zip" size="5" onkeyup="checkZip()"  onblur="checkZipOnBlur()" onfocus="checkZipOnFocus()"/> <span
+					style="float: right;"> Ort <input type="text" id="city"
 													  size="25" />
 			</span></td>
 		</tr>
@@ -188,6 +85,9 @@ function checkEmail()
 	</table>
 	<div id="errorName"></div>
 	<div id="errorEmail"></div>
+	<div id="errorZip"></div>
+	<div id="outputPW"></div>
+	<!-- Canvas für  -->
 </div>
 
 </html>
