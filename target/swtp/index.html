@@ -33,8 +33,7 @@
 			</div>
 		</header>
 		<article><div id="mapid" style="height:100%;"></div></article>
-		<aside id="side"><button onclick="test()">Test</button>
-			<h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></aside>
+		<aside id="side"><h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></aside>
 		<footer> Hier stehen später die gemachten Bewertungen </footer>
 	</div>
 </body>
@@ -53,20 +52,19 @@
 		<tr>
 			<td>Straße</td>
 			<td><input type="text" id="street" size="25" /> <span
-					style="float: right;"> Nr: <input type="text" name="streetNr"
-													  size="4" />
+					style="float: right;"> Nr: <input type="text" id="streetNr" size="4" />
 			</span></td>
 		</tr>
 		<tr>
 			<td>PLZ</td>
-			<td><input type="text" id="zip" size="5" onkeyup="checkPlz()"  onblur="checkPlzOnBlur()" onfocus="checkPlzOnFocus()"/> <span
+			<td><input type="text" id="zip" size="5" onkeyup="checkZip()"  onblur="checkZipOnBlur()" onfocus="checkZipOnFocus()"/> <span
 					style="float: right;"> Ort <input type="text" id="city"
 													  size="25" />
 			</span></td>
 		</tr>
 		<tr>
 			<td>E-Mail</td>
-			<td><input type="email" id="email" size="40" required onkeyup="checkEmail()"  onblur="checkEmailOnBlur()" onfocus="checkEmailOnFocus()"/></td>
+			<td><input type="email" id="email" size="40" required onkeyup="checkEmail()"  onblur="checkEmailOnBlur()" onfocus="checkEmailOnFocus()" value="mara0017@stud.hs-kl.de"/></td>
 		</tr>
 		<tr>
 			<td>Benutzer-Name</td>
@@ -74,21 +72,25 @@
 		</tr>
 		<tr>
 			<td>Passwort</td>
-			<td><input type="password" id="password" size="40" required /></td>
+			<td><input type="password" id="password" size="40" required onkeyup="checkPassword()" onblur="checkPasswordOnBlur()"  /></td>
 		</tr>
 
 		<tr>
 			<td>&nbsp;</td>
 			<td align="center">
-				<button type="button" style="width: 100px; height: 30px;" id="regist" disabled>Registrieren</button>
+				<button type="button" style="width: 100px; height: 30px;" id="regist" disabled onclick="register()">Registrieren</button>
 				<button type="button" style="width: 100px; height: 30px;" onclick="hideRegistration()">Abbrechen</button>
 			</td>
 		</tr>
 	</table>
+	<div id="errorLog" style="background-color: red; font-size: x-large"></div>
 	<div id="errorName"></div>
 	<div id="errorEmail"></div>
-	<div id="errorPlz"></div>
+	<div id="errorZip"></div>
 	<div id="outputPW"></div>
+
+	<canvas id="canvasPW"  width="80" height="10" style="border: 1px solid #d3d3d3;"></canvas>
+	<!-- Canvas für  -->
 </div>
 
 </html>

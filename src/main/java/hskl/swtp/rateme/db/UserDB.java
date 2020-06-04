@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import hskl.swtp.rateme.model.RatemeDbException;
 import hskl.swtp.rateme.model.User;
@@ -14,7 +16,7 @@ public class UserDB {
 			+ "VALUES (?,?,?,?,?,?,?,?,?)";
 	final private String getUserID ="SELECT * FROM rateme_user WHERE user_id = ?";
 	final private String getUserName ="SELECT * FROM rateme_user WHERE username = ?";
-	final private String validatePassword ="SELECT username,password FROM rateme_user WHERE username = ?";
+	final private String validatePassword ="SELECT password FROM rateme_user WHERE username = ?";
 
 
 	private DBConnection dbConnection = DBConnection.getInstance();
@@ -44,7 +46,7 @@ public class UserDB {
 			 pstmt.setString(6, user.getStreetNr());
 			 pstmt.setString(7, user.getZip());
 			 pstmt.setString(8, user.getCity());
-			 pstmt.setBytes(9, user.getPassword());
+			 pstmt.setString(9, user.getPassword());
 
 	         int x = pstmt.executeUpdate();
 	         
@@ -65,7 +67,7 @@ public class UserDB {
 		         {
 				  	User u = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),
 							rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),
-							rs.getBytes(10),rs.getTimestamp(11),rs.getTimestamp(12));
+							rs.getString(10),rs.getTimestamp(11),rs.getTimestamp(12));
 				  	return u;
 		         }
 	      } catch (SQLException ex)
@@ -82,10 +84,14 @@ public class UserDB {
 
 			try (ResultSet rs = pstmt.executeQuery())
 			{
+				if(rs != null){
 				User u = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
-						rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getBytes(10),
+						rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),
 						rs.getTimestamp(11),rs.getTimestamp(12));
 				return u;
+				}else{
+					return null;
+				}
 			}
 		} catch (SQLException ex)
 		{
@@ -93,23 +99,41 @@ public class UserDB {
 			throw new RatemeDbException("ERROR loadUser", ex);
 		}
 	}
+
+	private final String allUser ="SELECT username FROM rateme_user ";
+	public List<String> getAllUser(){
+		try (Connection connection = dbConnection.getConnection(); PreparedStatement pstmt = connection.prepareStatement(allUser))
+		{
+			List<String> list = new ArrayList<>();
+			try (ResultSet rs = pstmt.executeQuery())
+			{
+				while(rs.next()) {
+					list.add(rs.getString(1));
+				}
+			}
+
+			return list;
+		} catch (SQLException ex)
+		{
+			ex.printStackTrace();
+			throw new RatemeDbException("ERROR validatePassword", ex);
+		}
+	}
 	
 	public Boolean validatePassword(String username, String password) {
 		try (Connection connection = dbConnection.getConnection(); PreparedStatement pstmt = connection.prepareStatement(validatePassword))
 		{
 			pstmt.setString(1, username);
-			String userDB;
-			String pwDB;
+			String pw = null;
 			try (ResultSet rs = pstmt.executeQuery())
 			{
-				userDB = rs.getString(1);
-				pwDB = new String(rs.getBytes(2));
+				pw = rs.getString(1);
 			}
 
-			if (username.contentEquals(userDB) && pwDB.contentEquals(password))
-				return true;
-			else
+			if(pw == null)
 				return false;
+
+			return password.equals(pw);
 
 		} catch (SQLException ex)
 		{

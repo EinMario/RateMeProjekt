@@ -133,19 +133,23 @@ function checkZip()
         return;
 
     plzOK = true;
-    var length = -1;
 
-    var result =fetch("rateme/zip/"+value)
+     fetch("rateme/zip/"+value)
      .then(response => response.json())
-     .then(data => length = data.length)
-     .then(data => length = data)
-      .catch( error => console.log(error));
+     .then(data => {
+        if(data.length != 0){
+            plzOK = true;
+        }else{
+            plzOK = false;
+        }
+     })
+     .catch( error => console.log(error));
 
-    console.log(length);
-    console.log(result.typeof);
 
-    if(length >= 1){
-    console.log(True)}
+	if( plzOK == false )
+	{
+	  document.querySelector("#errorZip").innerHTML = "Eine Postleitzahl hat 5 Stellen und sollte als Korrekt empfunden werden";
+	}
 
 	checkIfAllOk();
 }
@@ -154,20 +158,18 @@ function checkZip()
 
 
 // Passwort
-function checkZipOnFocus()
-{
-	document.querySelector("#errorZip").innerHTML = "";
-}
 
-function checkZipOnBlur()
+function checkPasswordOnBlur()
 {
-	if( document.querySelector("#zip").value.length == 0 )
+	if( document.querySelector("#password").value.length == 0 )
 		return;
 
 	if( passwordOk == false )
 	{
-	  document.querySelector("#errorZip").innerHTML = "Eine Postleitzahl hat 5 Stellen und sollte als Korrekt empfunden werden";
+	  document.querySelector("#outputPW").innerHTML = "Gib ein sicheres Passwort ein";
 	}
+    checkIfAllOk();
+
 }
 
 function checkPassword(){
@@ -208,6 +210,7 @@ function checkPassword(){
         passwordOk = true;
     }
 
+    console.log(passwordOk);
 
     let outputSize = 0;
 
@@ -218,7 +221,7 @@ function checkPassword(){
     if (specialSign)
         outputSize += 4;
 
-    let c = document.querySelector("#pwdCanvas");
+    let c = document.querySelector("#canvasPW");
     let ctx = c.getContext("2d");
 
     ctx.fillStyle = "red";
@@ -231,5 +234,101 @@ function checkPassword(){
     ctx.fillStyle = grd;
     ctx.fillRect(0, 0, 80, 10);
 
-    checkIfAllOk;
+    checkIfAllOk();
+}
+
+//Register
+
+function register(){
+    document.querySelector("#errorLog").innerHTML = "";
+
+
+    //Name
+    let firstname = document.querySelector("#firstname").value;
+    let lastname = document.querySelector("#lastname").value;
+
+    //Location
+    let streetBool = true;
+    let streetNrBool = true;
+    let street = document.querySelector("#street").value;
+    let streetNr = document.querySelector("#streetNr").value;
+
+    let cityBool = true;
+    let zip = document.querySelector('#zip').value;
+    let city = document.querySelector('#city').value;
+
+    if(street == null || street =="") {
+        streetBool = false;
+        document.querySelector("#errorLog").innerHTML += "ERROR: Straße angeben <br/>" ;
+    }
+
+    if(streetNr == null || streetNr =="") {
+        streetNrBool = false;
+        document.querySelector("#errorLog").innerHTML += "ERROR: Hausnummer angeben <br/>";
+    }
+
+    if(city == null || city =="") {
+        cityBool = false;
+        document.querySelector("#errorLog").innerHTML += "ERROR: Ort angeben <br/>";
+    }
+    //Mail
+    let email = document.querySelector("#email").value;
+
+    //Username
+    let userBool = true;
+    let username = document.querySelector("#username").value;
+
+    if(username == null || username =="") {
+        userBool = false;
+        document.querySelector("#errorLog").innerHTML += "ERROR: Username angeben <br/>";
+    }
+
+    //Password
+    let password = document.querySelector("#password").value;
+
+    if(streetBool && streetNrBool && cityBool && userBool){
+        var text =firstname +":" + lastname+":" +street+":" +streetNr+":" +zip+":" +city+":" +email+":" +username+":" + password  +";";
+
+        console.log(text);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if (xhttp.readyState == XMLHttpRequest.DONE) {
+                        // 1 => Fehler
+                        // 2 => Benutzer vorhanden
+                        // 3 => Erfolg
+                if(xhttp.responseText == "3"){
+                    alert("Erfolgreich registriert");
+                    clear();
+                    hideRegistration();
+                }else if(xhttp.responseText == "2"){
+                    document.querySelector("#errorLog").innerHTML += "ERROR: Benutzer bereits vorhanden <br/>";
+                }else{
+                    document.querySelector("#errorLog").innerHTML += "ERROR: Unbekannter Fehler <br/>";
+                }
+            }
+        }
+        xhttp.open("POST", "rateme/user/"+text, true);
+        xhttp.send();
+    }
+
+    function clear(){
+            document.querySelector("#firstname").value = "";
+            document.querySelector("#lastname").value = "";
+            document.querySelector("#street").value = "";
+            document.querySelector("#streetNr").value = "";
+            document.querySelector('#zip').value = "";
+            document.querySelector('#city').value = "";
+            document.querySelector("#email").value = "";
+            document.querySelector("#username").value = "";
+            document.querySelector("#password").value = "";
+
+            nameOk = false;
+            emailOk = false;
+            lnameOk = false;
+            plzOK = false;
+            passwordOk = false;
+
+            document.querySelector("#regist").disabled=true;
+    }
 }

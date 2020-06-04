@@ -14,11 +14,11 @@ public class User {
     private String streetNr;
     private String zip;
     private String city;
-    private byte[] password;
+    private String password;
     private Timestamp create;
     private Timestamp modify;
 
-    public User(int id, String username, String mail, String firstname, String lastname, String street, String streetNr, String zip, String city, byte[] password) {
+    public User(int id, String username, String mail, String firstname, String lastname, String street, String streetNr, String zip, String city, String password) {
         this.setId(id);
         this.setUsername(username);
         this.mail = mail;
@@ -36,8 +36,25 @@ public class User {
         this.setCreate(s);
         this.setModify(s);
     }
+    public User( String username, String mail, String firstname, String lastname, String street, String streetNr, String zip, String city, String password) {
+        this.setUsername(username);
+        this.mail = mail;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.street = street;
+        this.streetNr = streetNr;
+        this.zip = zip;
+        this.city = city;
+        this.password = password;
 
-    public User(int id, String username, String mail, String firstname, String lastname, String street, String streetNr, String zip, String city, byte[] password, Timestamp create, Timestamp modify) {
+        Date d = new Date();
+        Timestamp s = new Timestamp(d.getTime());
+
+        this.setCreate(s);
+        this.setModify(s);
+    }
+
+    public User(int id, String username, String mail, String firstname, String lastname, String street, String streetNr, String zip, String city, String password, Timestamp create, Timestamp modify) {
         this.setId(id);
         this.setUsername(username);
         this.mail = mail;
@@ -101,11 +118,11 @@ public class User {
         this.zip = zip;
     }
 
-    public byte[] getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(byte[] password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -169,7 +186,7 @@ public class User {
                 ", streetNr='" + streetNr + '\'' +
                 ", zip='" + zip + '\'' +
                 ", city='" + city + '\'' +
-                ", password=" + Arrays.toString(password) +
+                ", password=" + password +
                 ", create=" + create +
                 ", modify=" + modify +
                 '}';

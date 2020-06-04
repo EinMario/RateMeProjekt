@@ -1,4 +1,5 @@
 hskl\swtp\rateme\api\ZipController.class
+hskl\swtp\rateme\api\UserController.class
 hskl\swtp\rateme\db\RatingDB.class
 hskl\swtp\rateme\db\DBConnection.class
 hskl\swtp\rateme\db\PoiTagDB.class
@@ -7,7 +8,6 @@ hskl\swtp\rateme\model\User.class
 hskl\swtp\rateme\db\UserDB.class
 hskl\swtp\rateme\model\RatemeDbException.class
 hskl\swtp\rateme\Main.class
-hskl\swtp\rateme\model\City.class
 hskl\swtp\rateme\model\Poi.class
 hskl\swtp\rateme\api\TestController.class
 hskl\swtp\SwtpRestApplication.class
