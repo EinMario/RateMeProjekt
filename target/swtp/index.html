@@ -22,22 +22,16 @@
 <body>
 	<div class="mainContainer">
 		<header>
-			<div style="visibility : visible">
-				<div id="beforeLogin">
-				<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required /></span>
-				<span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required /></span>
-				<button type="button" style="width: 100px;" onclick="login()">Anmelden</button>
 
-				<div id="errorLogin"></div>
+				<div id="loginStatus">
+					<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required /></span>
+					<span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required /></span>
+					<button type="button" style="width: 100px;" onclick="login()">Anmelden</button>
 
 				<span style="float: right; white-space: nowrap"> <a href="javascript:showRegistration()">
 						Als neuer Benutzer registrieren</a></span>
 				</div>
-				<div id="afterLogin"  style="visibility : hidden">
-					<div id="loggedName" class="label"></div>
-					<button type="button" style="width: 100px;" onclick="logout()">Logout</button>
-				</div>
-			</div>
+
 		</header>
 		<article><div id="mapid" style="height:100%;"></div></article>
 		<aside id="side"><h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></aside>

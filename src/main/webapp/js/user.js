@@ -1,57 +1,39 @@
-function login(){
-    document.querySelector("#errorLogin").innerHTML ="";
 
-    let username = document.querySelector("#userNameLogin").value;
-    let password = document.querySelector("#passwordLogin").value;
-
-    let text = username + ":" + password +";";
-
-
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        console.log(xhttp.readyState);
-
-        if (xhttp.status == XMLHttpRequest.DONE && xhttp.readyState == 4) {
-
-            alert("Done");
-            document.querySelector("#beforeLogin").style.visibility = "hidden";
-            document.querySelector("#beforeLogin").style.visibility = "visible";
-            document.querySelector("#loggedName").innerHTML = username;
-        }else{
-            document.querySelector("#errorLogin").innerHTML += "ERROR: Anmeldeinformationen sind falsch <br/>";
-        }
+let loggedIn = false;
+function changeLoginStatus(name){
+    if(loggedIn){
+        document.querySelector("#loginStatus").innerHTML = '<span style="white-space: nowrap"> <div id="loggedName" class="label">'+ name + '</div> </span>' + '<span style="float: right; white-space: nowrap"><button type="button"  onclick="logout()">Logout</button> </span>';
+    }else{
+        document.querySelector("#loginStatus").innerHTML = '<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required /></span> <span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required /></span> <button type="button" style="width: 100px;" onclick="login()">Anmelden</button>'+
+                                                            '<span style="float: right; white-space: nowrap"> <a href="javascript:showRegistration()"> Als neuer Benutzer registrieren</a></span>';
     }
-    xhttp.open("POST", "rateme/user/login/"+text, true);
-    xhttp.send();
 }
 
-function login1(){
-    document.querySelector("#errorLogin").innerHTML ="";
+function login(){
 
     let username = document.querySelector("#userNameLogin").value;
     let password = document.querySelector("#passwordLogin").value;
 
-    let text = username + ":" + password +";";
+    let usernamePassword = username + ":" + password +";";
 
-
-
-
-    fetch('rateme/user/login/',   {
+    fetch('rateme/user/login/'+usernamePassword,   {
         method: 'post',
         body: text
       })
       .then( response => {
-            document.querySelector("#username").value = "";
-            document.querySelector("#password").value = "";
+
             if( !response.ok )
             {
-                document.querySelector("#errorLogin").innerHTML = "Benutzerdaten sind fehlerhaft!";
+                document.querySelector("#passwordLogin").value = "";
+                alert("Benutzerdaten sind fehlerhaft!");
                 throw Error(response.statusText);
             }
             else
             {
-                alert("Ja")
+                document.querySelector("#userNameLogin").value = "";
+                document.querySelector("#passwordLogin").value = "";
+                loggedIn = true;
+                changeLoginStatus(username);
             }
         } )
      .catch( error => console.error('Error:', error));
@@ -66,8 +48,8 @@ function logout()
 	  .then( response => {
 		  if( response.ok )
 	      {
-			 // changeVisibility();
-			 alert("Logout")
+			 loggedIn = false;
+             changeLoginStatus("");
 		  }
 	  } )
 	  .catch( error => console.error('Error:', error) );

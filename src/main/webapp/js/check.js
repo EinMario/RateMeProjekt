@@ -210,8 +210,6 @@ function checkPassword(){
         passwordOk = true;
     }
 
-    console.log(passwordOk);
-
     let outputSize = 0;
 
     if (minLength)

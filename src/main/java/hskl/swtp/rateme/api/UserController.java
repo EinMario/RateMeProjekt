@@ -72,9 +72,6 @@ public class UserController {
     @Path("/register/{register}")
     @Produces("text/plain")
     public Response createUser(@PathParam("register") String register) throws InvalidKeySpecException, NoSuchAlgorithmException {
-        // 1 => Fehler
-        // 2 => Benutzer vorhanden
-        // 3 => Erfolg
 
         String[] input = register.split(":");
         String firstname = input[0];

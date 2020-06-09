@@ -1,3 +1,3 @@
-#Tue Jun 09 09:52:20 CEST 2020
+#Tue Jun 09 11:19:58 CEST 2020
 lib/com.ibm.ws.require.java8_1.0.41.jar=3356ee880ce2788f173334214617d492
 lib/features/com.ibm.websphere.appserver.microProfile-3.3.mf=f5e2adb37d61a1796b02fab9dce37e7f
