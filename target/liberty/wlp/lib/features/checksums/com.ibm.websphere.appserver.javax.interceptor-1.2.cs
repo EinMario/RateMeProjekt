@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:47 CEST 2020
-dev/api/spec/com.ibm.websphere.javaee.interceptor.1.2_1.0.40.jar=5313a419c127816bef5eb39cf1de521b
-lib/features/com.ibm.websphere.appserver.javax.interceptor-1.2.mf=d4b01c1d62a46515d642436597369d61
+#Tue Jun 09 09:52:08 CEST 2020
+dev/api/spec/com.ibm.websphere.javaee.interceptor.1.2_1.0.41.jar=aeace637ca977b88476acd05a152ba8e
+lib/features/com.ibm.websphere.appserver.javax.interceptor-1.2.mf=505b83ffebfd987cc17481ec88616878

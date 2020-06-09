@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:52 CEST 2020
-dev/api/spec/com.ibm.websphere.javaee.jsp.2.3_1.0.40.jar=bc4d2f0a3c8dabe6362a7c516c49af39
-lib/features/com.ibm.websphere.appserver.javax.jsp-2.3.mf=a34d8fcab56f86c487096de37eafb0ad
+#Tue Jun 09 09:52:13 CEST 2020
+dev/api/spec/com.ibm.websphere.javaee.jsp.2.3_1.0.41.jar=59864314634609ff0ebc23cbc8dedf09
+lib/features/com.ibm.websphere.appserver.javax.jsp-2.3.mf=72220e2ab8b9f1a72f68fc74faf4cf0c

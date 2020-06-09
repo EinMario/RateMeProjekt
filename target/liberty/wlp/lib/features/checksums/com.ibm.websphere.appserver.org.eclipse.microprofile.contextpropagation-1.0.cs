@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:49 CEST 2020
-dev/api/stable/com.ibm.websphere.org.eclipse.microprofile.contextpropagation.1.0_1.0.40.jar=f2affb4e7c5987758bc62d230f3d50f7
-lib/features/com.ibm.websphere.appserver.org.eclipse.microprofile.contextpropagation-1.0.mf=de60cb178d91466e941ca7ae972995f7
+#Tue Jun 09 09:52:10 CEST 2020
+dev/api/stable/com.ibm.websphere.org.eclipse.microprofile.contextpropagation.1.0_1.0.41.jar=51ae4fa36293929edcc96b65addb724f
+lib/features/com.ibm.websphere.appserver.org.eclipse.microprofile.contextpropagation-1.0.mf=954e0b3e214c594ce8ec44a057d88c94

@@ -1,5 +1,5 @@
-#Thu Jun 04 16:44:55 CEST 2020
-lib/features/com.ibm.websphere.appserver.monitor-1.0.mf=c63b7c634336a0530685798c458d2581
-lib/com.ibm.ws.monitor_1.0.40.jar=6ec9b95bb6db81bf20ec25ad09197506
-dev/api/ibm/com.ibm.websphere.appserver.api.monitor_1.1.40.jar=0ac22497b7b6223ba484f387a7368581
-dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.monitor_1.1-javadoc.zip=50c11c4b82222e075e4e8823afe65291
+#Tue Jun 09 09:52:17 CEST 2020
+lib/com.ibm.ws.monitor_1.0.41.jar=ad60d695414b8e3ace47d16a6f8ac7df
+dev/api/ibm/com.ibm.websphere.appserver.api.monitor_1.1.41.jar=783be8e3f7c2f416b211746023b85f8d
+lib/features/com.ibm.websphere.appserver.monitor-1.0.mf=2f3aa6971045727636bf89de0e1e45b9
+dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.monitor_1.1-javadoc.zip=857f6e1d3cbe67974ac86782dd967b38

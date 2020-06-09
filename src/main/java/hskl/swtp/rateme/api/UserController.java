@@ -1,22 +1,26 @@
 package hskl.swtp.rateme.api;
 
 import hskl.swtp.rateme.db.UserDB;
+import hskl.swtp.rateme.model.AccessManager;
 import hskl.swtp.rateme.model.User;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.PBEKeySpec;
+import javax.enterprise.inject.New;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
+import java.util.UUID;
 
 @Singleton
 @Path("/user")
@@ -25,11 +29,49 @@ public class UserController {
     @Inject
     UserDB dbAccess;
 
+    @Inject
+    AccessManager acManager;
+
+    @POST
+    @Path("/login/{login}")
+    //user:password
+    public Response login(@PathParam("login") String login){
+        List<String> existingUser = dbAccess.getAllUser();
+        String[] input = login.split(":");
+
+        System.out.println(login);
+
+        String username = input[0];
+        String password = input[1];
+
+        if(existingUser.contains(username)){
+            if(dbAccess.validatePassword(username,password)){
+                UUID uuid = acManager.login(username);
+                NewCookie loginCookie = new NewCookie("LoginID",uuid.toString());
+                return Response.status(200).cookie(loginCookie).build();
+            }else{
+                return Response.status(404).build();
+            }
+        }else{
+            return Response.status(404).build();
+        }
+    }
+
+    @DELETE
+    @Path("/login")
+    public Response logout(@CookieParam("LoginID")String loginID){
+        try{
+            acManager.logout(UUID.fromString(loginID));
+            return Response.status(200).cookie((NewCookie)null).build();
+        }catch (Exception e){
+            return Response.status(404).build();
+        }
+    }
 
     @POST()
-    @Path("/{register}")
+    @Path("/register/{register}")
     @Produces("text/plain")
-    public int createUser(@PathParam("register") String register) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public Response createUser(@PathParam("register") String register) throws InvalidKeySpecException, NoSuchAlgorithmException {
         // 1 => Fehler
         // 2 => Benutzer vorhanden
         // 3 => Erfolg
@@ -45,23 +87,21 @@ public class UserController {
         String username = input[7];
         String password = input[8];
 
+        System.out.println(input);
+
         List<String> existingUser = dbAccess.getAllUser();
 
         if(existingUser.contains(username)){
-            return 2;
+            return Response.status(404).build();
         }else{
 
             String hashedPassword = getHashedPassword(password,username);
 
             User newUser = new User(username,mail,firstname,lastname,street,streetnr,zip,city,hashedPassword);
 
-            int result = dbAccess.createUser(newUser);
+            dbAccess.createUser(newUser);
 
-            if(result > 0){
-                return 3;
-            }else {
-                return 1;
-            }
+            return Response.status(200).build();
         }
     }
 

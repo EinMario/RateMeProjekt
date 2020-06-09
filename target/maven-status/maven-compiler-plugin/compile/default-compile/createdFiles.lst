@@ -1,4 +1,5 @@
 hskl\swtp\rateme\api\ZipController.class
+hskl\swtp\rateme\model\AccessManager.class
 hskl\swtp\rateme\api\UserController.class
 hskl\swtp\rateme\db\RatingDB.class
 hskl\swtp\rateme\db\DBConnection.class

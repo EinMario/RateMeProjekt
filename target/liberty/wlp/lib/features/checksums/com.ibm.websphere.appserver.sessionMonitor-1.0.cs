@@ -1,5 +1,5 @@
-#Thu Jun 04 16:45:02 CEST 2020
-dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.sessionstats_1.0-javadoc.zip=5b52213bc06f30d0cecaf65b0b0d2837
-lib/com.ibm.ws.session.monitor_1.0.40.jar=df452409f630383657e92aa6a5bb71aa
-lib/features/com.ibm.websphere.appserver.sessionMonitor-1.0.mf=6e87ec42fea2ead2034119c5992bc6cc
-dev/api/ibm/com.ibm.websphere.appserver.api.sessionstats_1.0.40.jar=30e923e8c44f6596dd088adce12aac0e
+#Tue Jun 09 09:52:24 CEST 2020
+lib/com.ibm.ws.session.monitor_1.0.41.jar=1b51c8142ea2814bb1f82e991062fc52
+dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.sessionstats_1.0-javadoc.zip=e48c028cd5f06c3acd78061cd972e09e
+lib/features/com.ibm.websphere.appserver.sessionMonitor-1.0.mf=dfc2d51fd5afa8d10693e553469be36d
+dev/api/ibm/com.ibm.websphere.appserver.api.sessionstats_1.0.41.jar=dddda506e62279c0b0cf26f1d3ebd4cd

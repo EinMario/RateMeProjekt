@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:51 CEST 2020
-lib/com.ibm.ws.javaee.persistence.2.2_1.0.40.jar=03b6676e3217c8991ecbb11cf1c5cf7f
-lib/features/com.ibm.websphere.appserver.javax.persistence.base-2.2.mf=058db78e97e4ede97550a7b08dc74c25
+#Tue Jun 09 09:52:13 CEST 2020
+lib/com.ibm.ws.javaee.persistence.2.2_1.0.41.jar=c980fb975413503989daa8eac7cbd88b
+lib/features/com.ibm.websphere.appserver.javax.persistence.base-2.2.mf=246609688187c48503d9f95111632e54

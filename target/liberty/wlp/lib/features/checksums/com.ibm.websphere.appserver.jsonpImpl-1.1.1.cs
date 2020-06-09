@@ -1,4 +1,4 @@
-#Thu Jun 04 16:44:46 CEST 2020
-lib/features/com.ibm.websphere.appserver.jsonpImpl-1.1.1.mf=b55d3655530e9989881975af1d81a4ad
-dev/api/spec/com.ibm.websphere.javaee.jsonp.1.1_1.0.40.jar=5a3173b86d66f936f710ab8b02365c47
-lib/com.ibm.ws.org.glassfish.json.1.1_1.0.40.jar=00605f51d700fa59afe77239101bb272
+#Tue Jun 09 09:52:07 CEST 2020
+dev/api/spec/com.ibm.websphere.javaee.jsonp.1.1_1.0.41.jar=e2935e88c1d6d2b60f603ed57dd24494
+lib/features/com.ibm.websphere.appserver.jsonpImpl-1.1.1.mf=96aca1823c30222a0a911e31fa415eeb
+lib/com.ibm.ws.org.glassfish.json.1.1_1.0.41.jar=73899753671880d844ec15252c4e0b6f

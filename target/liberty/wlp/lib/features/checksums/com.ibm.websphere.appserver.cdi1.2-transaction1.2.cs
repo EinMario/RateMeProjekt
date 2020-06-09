@@ -1,3 +1,3 @@
-#Thu Jun 04 16:45:03 CEST 2020
-lib/com.ibm.ws.cdi.transaction_1.0.40.jar=f14f089df0e98522319534b0d522a53b
-lib/features/com.ibm.websphere.appserver.cdi1.2-transaction1.2.mf=871f45b3e093962399a2b9030f42d5ab
+#Tue Jun 09 09:52:31 CEST 2020
+lib/com.ibm.ws.cdi.transaction_1.0.41.jar=286a67bfe1d599d8002c3e8077709212
+lib/features/com.ibm.websphere.appserver.cdi1.2-transaction1.2.mf=d9f32ed46d90e6bb0c5fb939d9f75e63

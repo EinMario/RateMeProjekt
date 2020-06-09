@@ -22,10 +22,10 @@
     <assemblyArtifact>
         <groupId>io.openliberty</groupId>
         <artifactId>openliberty-kernel</artifactId>
-        <version>20.0.0.5</version>
+        <version>20.0.0.6</version>
         <type>zip</type>
     </assemblyArtifact>
-    <assemblyArchive>C:\Users\mario\.m2\repository\io\openliberty\openliberty-kernel\20.0.0.5\openliberty-kernel-20.0.0.5.zip</assemblyArchive>
+    <assemblyArchive>C:\Users\mario\.m2\repository\io\openliberty\openliberty-kernel\20.0.0.6\openliberty-kernel-20.0.0.6.zip</assemblyArchive>
     <assemblyInstallDirectory>C:\DEV\1\target\liberty</assemblyInstallDirectory>
     <refresh>false</refresh>
     <installAppsConfigDropins>C:\DEV\1\target\liberty\wlp\usr\servers\swtp\configDropins\defaults\install_apps_configuration_1491924271.xml</installAppsConfigDropins>

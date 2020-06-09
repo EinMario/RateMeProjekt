@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:59 CEST 2020
-lib/com.ibm.ws.security.token.s4u2_1.0.40.jar=e1d25c07e26ca6c1843fd9652e7181cf
-lib/features/com.ibm.websphere.appserver.autoSecurityS4U2-1.0.mf=d67b84c25b4c2b9735f695902ee7b59f
+#Tue Jun 09 09:52:20 CEST 2020
+lib/features/com.ibm.websphere.appserver.autoSecurityS4U2-1.0.mf=500803632f31e0657f684700c9e71c79
+lib/com.ibm.ws.security.token.s4u2_1.0.41.jar=4a94ec4fcbd0003926189d10864ab481

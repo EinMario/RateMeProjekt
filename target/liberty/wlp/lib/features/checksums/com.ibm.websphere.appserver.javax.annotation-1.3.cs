@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:46 CEST 2020
-lib/features/com.ibm.websphere.appserver.javax.annotation-1.3.mf=b2d7d176593d106b6594c54d81dfe9d4
-dev/api/spec/com.ibm.websphere.javaee.annotation.1.3_1.0.40.jar=c24e6bdd4b9c217bb749f8e51cf4a483
+#Tue Jun 09 09:52:07 CEST 2020
+lib/features/com.ibm.websphere.appserver.javax.annotation-1.3.mf=6c4afaa6bd52fc2a0c7a5c14a958502d
+dev/api/spec/com.ibm.websphere.javaee.annotation.1.3_1.0.41.jar=8060d7cf5a0df4cc86e395c03b7dcbdb

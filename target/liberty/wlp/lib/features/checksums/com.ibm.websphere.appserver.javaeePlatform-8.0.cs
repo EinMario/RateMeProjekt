@@ -1,4 +1,4 @@
-#Thu Jun 04 16:44:48 CEST 2020
-lib/com.ibm.ws.javaee.platform.v8_1.0.40.jar=5ff42c3dbefcb57982481bd1607336b5
-lib/features/com.ibm.websphere.appserver.javaeePlatform-8.0.mf=fd4431d804f4a4ac8b7169f3bbc7222e
-lib/com.ibm.ws.javaee.version_1.0.40.jar=6ee1e3b95b24b63ee71fac4d8ec5b2e8
+#Tue Jun 09 09:52:09 CEST 2020
+lib/com.ibm.ws.javaee.platform.v8_1.0.41.jar=4e35468a92a71a197556366c4487f9c4
+lib/features/com.ibm.websphere.appserver.javaeePlatform-8.0.mf=81b6ec4c30b8d11fbb49162da278b4c1
+lib/com.ibm.ws.javaee.version_1.0.41.jar=b89aa307807000b63ce01dd686711265

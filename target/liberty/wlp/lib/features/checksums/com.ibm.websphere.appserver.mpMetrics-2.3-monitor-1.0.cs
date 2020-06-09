@@ -1,3 +1,3 @@
-#Thu Jun 04 16:45:01 CEST 2020
-lib/com.ibm.ws.microprofile.metrics.2.3.monitor_1.0.40.jar=2bffba30330c596a9fededb33472a474
-lib/features/com.ibm.websphere.appserver.mpMetrics-2.3-monitor-1.0.mf=71cae700c98e6f5d0e796e2e2f96377a
+#Tue Jun 09 09:52:23 CEST 2020
+lib/features/com.ibm.websphere.appserver.mpMetrics-2.3-monitor-1.0.mf=1e991a4a88ac6ec58d35a3df63fcf7b2
+lib/com.ibm.ws.microprofile.metrics.2.3.monitor_1.0.41.jar=34fc6df0049a029ed24e2036615da908

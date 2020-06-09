@@ -1,5 +1,5 @@
-#Thu Jun 04 16:44:49 CEST 2020
-lib/features/com.ibm.websphere.appserver.globalhandler-1.0.mf=1d10fdf0a2d464d1571ce633f2aa4667
-dev/spi/ibm/com.ibm.websphere.appserver.spi.globalhandler_1.0.40.jar=b102aff8be0f309b36cec074097f4316
-dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.globalhandler_1.0-javadoc.zip=3a9da04d7c0be2873e00ce2b035a4c57
-lib/com.ibm.ws.webservices.handler_1.0.40.jar=0c2019e166198281d188c0ad5d48b99b
+#Tue Jun 09 09:52:10 CEST 2020
+dev/spi/ibm/com.ibm.websphere.appserver.spi.globalhandler_1.0.41.jar=5900d551a5df13a954e6e671c2043571
+lib/features/com.ibm.websphere.appserver.globalhandler-1.0.mf=58976f5388a15ec0410579cd5567cbf2
+dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.globalhandler_1.0-javadoc.zip=67a4a4bac1d6075a041b427688cebac9
+lib/com.ibm.ws.webservices.handler_1.0.41.jar=9a125cee0c6b581b16ebe404e2fc509c

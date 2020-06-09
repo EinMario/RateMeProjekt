@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:48 CEST 2020
-lib/features/com.ibm.websphere.appserver.injection-1.0.mf=fd138a20705c9b3d1adb42b35e0668a3
-lib/com.ibm.ws.injection_1.0.40.jar=ff6e25cceb3470fd94630cf839d3445c
+#Tue Jun 09 09:52:09 CEST 2020
+lib/features/com.ibm.websphere.appserver.injection-1.0.mf=dc2f09e6b1f3aa2fea9edc6af387b2c2
+lib/com.ibm.ws.injection_1.0.41.jar=c0572e75cc4045b4133069d775b27a7e

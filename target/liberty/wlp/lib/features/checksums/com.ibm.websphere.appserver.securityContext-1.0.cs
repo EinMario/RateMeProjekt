@@ -1,3 +1,3 @@
-#Thu Jun 04 16:45:00 CEST 2020
-lib/com.ibm.ws.security.context_1.0.40.jar=8a63aac62a275729db858a0f055c14ec
-lib/features/com.ibm.websphere.appserver.securityContext-1.0.mf=f6e696ec3a3c8d95822fbf2438b6cffb
+#Tue Jun 09 09:52:22 CEST 2020
+lib/com.ibm.ws.security.context_1.0.41.jar=4cb853b0e1ca303dd29da6359a4760b6
+lib/features/com.ibm.websphere.appserver.securityContext-1.0.mf=e82416f5a07ab51a908ebdb60c158a59

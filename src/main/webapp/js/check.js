@@ -289,27 +289,25 @@ function register(){
     if(streetBool && streetNrBool && cityBool && userBool){
         var text =firstname +":" + lastname+":" +street+":" +streetNr+":" +zip+":" +city+":" +email+":" +username+":" + password  +";";
 
-        console.log(text);
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function(){
-            if (xhttp.readyState == XMLHttpRequest.DONE) {
-                        // 1 => Fehler
-                        // 2 => Benutzer vorhanden
-                        // 3 => Erfolg
-                if(xhttp.responseText == "3"){
+        fetch('rateme/user/register/'+text,   {
+            method: 'post',
+            body: text
+          })
+          .then( response => {
+                if( !response.ok )
+                {
+                    document.querySelector("#errorLog").innerHTML += "ERROR: Benutzer bereits vorhanden <br/>";
+                    throw Error(response.statusText);
+                }
+                else
+                {
                     alert("Erfolgreich registriert");
                     clear();
                     hideRegistration();
-                }else if(xhttp.responseText == "2"){
-                    document.querySelector("#errorLog").innerHTML += "ERROR: Benutzer bereits vorhanden <br/>";
-                }else{
-                    document.querySelector("#errorLog").innerHTML += "ERROR: Unbekannter Fehler <br/>";
                 }
-            }
-        }
-        xhttp.open("POST", "rateme/user/"+text, true);
-        xhttp.send();
+            } )
+         .catch( error => console.error('Error:', error));
+
     }
 
     function clear(){
@@ -323,6 +321,13 @@ function register(){
             document.querySelector("#username").value = "";
             document.querySelector("#password").value = "";
 
+            document.querySelector("#errorLog").innerHTML = "";
+            document.querySelector("#errorName").innerHTML = "";
+            document.querySelector("#errorEmail").innerHTML = "";
+            document.querySelector("#errorZip").innerHTML = "";
+
+
+
             nameOk = false;
             emailOk = false;
             lnameOk = false;
@@ -330,5 +335,6 @@ function register(){
             passwordOk = false;
 
             document.querySelector("#regist").disabled=true;
+
     }
 }

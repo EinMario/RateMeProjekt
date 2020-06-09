@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:51 CEST 2020
-lib/features/com.ibm.websphere.appserver.internal.optional.jaxws-2.2.mf=9b377cb838305592d3c8e9d651bfb258
-dev/api/spec/com.ibm.websphere.javaee.jaxws.2.2_1.0.40.jar=97110cb2df0969730c61400a637dbc0c
+#Tue Jun 09 09:52:12 CEST 2020
+lib/features/com.ibm.websphere.appserver.internal.optional.jaxws-2.2.mf=9667dd90e410489438166798606e9822
+dev/api/spec/com.ibm.websphere.javaee.jaxws.2.2_1.0.41.jar=0758fe282cd5f7c85ab2daa02198ba21

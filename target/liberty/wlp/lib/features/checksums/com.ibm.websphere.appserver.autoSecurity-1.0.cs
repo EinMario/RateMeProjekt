@@ -1,4 +1,4 @@
-#Thu Jun 04 16:45:01 CEST 2020
-lib/features/com.ibm.websphere.appserver.autoSecurity-1.0.mf=2ba500bba72a36138adb129814c022e6
-dev/api/ibm/com.ibm.websphere.appserver.api.security.spnego_1.1.40.jar=af1d215f9824f24022379f767bd69d8b
-dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.security.spnego_1.1-javadoc.zip=d25c58f1dd654be8a23a25f243faf54e
+#Tue Jun 09 09:52:23 CEST 2020
+lib/features/com.ibm.websphere.appserver.autoSecurity-1.0.mf=5067485778f1b7d64a4b85a311d7159f
+dev/api/ibm/com.ibm.websphere.appserver.api.security.spnego_1.1.41.jar=9ad18d9fb671fddddacfe17504fa2f3c
+dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.security.spnego_1.1-javadoc.zip=845dcb43baf40c9696ce61a918518bf7

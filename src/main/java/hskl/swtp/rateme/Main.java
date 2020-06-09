@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException, UnsupportedEncodingException {
 
        String a = test("password","fred");
-       String v = test("passwordasd","fred");
+       String v = test("password","freddy");
         System.out.println(a);
         System.out.println(a.length());
 

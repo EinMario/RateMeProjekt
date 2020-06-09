@@ -1,22 +1,22 @@
 package hskl.swtp.rateme.db;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import hskl.swtp.rateme.model.RatemeDbException;
 import hskl.swtp.rateme.model.User;
-import hskl.swtp.rateme.db.DBConnection;;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 public class UserDB {
 	final private String createUserSQL ="INSERT INTO rateme_user (username,E_Mail,firstname,lastname,street,streetNr,zip,city,password)"
 			+ "VALUES (?,?,?,?,?,?,?,?,?)";
 	final private String getUserID ="SELECT * FROM rateme_user WHERE user_id = ?";
 	final private String getUserName ="SELECT * FROM rateme_user WHERE username = ?";
-	final private String validatePassword ="SELECT password FROM rateme_user WHERE username = ?";
 
 
 	private DBConnection dbConnection = DBConnection.getInstance();
@@ -116,29 +116,62 @@ public class UserDB {
 		} catch (SQLException ex)
 		{
 			ex.printStackTrace();
-			throw new RatemeDbException("ERROR validatePassword", ex);
+			throw new RatemeDbException("ERROR getting all user", ex);
 		}
 	}
-	
+
+	final private String validatePassword ="SELECT password FROM rateme_user WHERE username = ?";
 	public Boolean validatePassword(String username, String password) {
 		try (Connection connection = dbConnection.getConnection(); PreparedStatement pstmt = connection.prepareStatement(validatePassword))
 		{
+
 			pstmt.setString(1, username);
 			String pw = null;
-			try (ResultSet rs = pstmt.executeQuery())
-			{
+
+			ResultSet rs = pstmt.executeQuery();
+
+			if(rs.next()){
 				pw = rs.getString(1);
 			}
 
-			if(pw == null)
-				return false;
+			String loginPw = getHashedPassword(password,username);
 
-			return password.equals(pw);
+			return pw.contentEquals(loginPw);
 
 		} catch (SQLException ex)
 		{
 			ex.printStackTrace();
 			throw new RatemeDbException("ERROR validatePassword", ex);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (InvalidKeySpecException e) {
+			e.printStackTrace();
 		}
+		return false;
+	}
+
+	private static String toHex(byte[] array)
+	{
+		BigInteger bi = new BigInteger(1, array);
+		String hex = bi.toString(16);
+		int paddingLength = (array.length * 2) - hex.length();
+		if(paddingLength > 0)
+		{
+			return String.format("%0"  +paddingLength + "d", 0) + hex;
+		}else{
+			return hex;
+		}
+	}
+
+	private static String getHashedPassword(String password,String username) throws NoSuchAlgorithmException, InvalidKeySpecException
+	{
+		char[] chars = password.toCharArray();
+		byte[] salt = username.getBytes();
+
+		PBEKeySpec spec = new PBEKeySpec(chars, salt, 1000, 64 * 8);
+		SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+		byte[] hash = skf.generateSecret(spec).getEncoded();
+
+		return  toHex(salt) + ":" + toHex(hash);
 	}
 }

@@ -1,6 +1,6 @@
-#Thu Jun 04 16:44:59 CEST 2020
-lib/com.ibm.ws.microprofile.config.1.4.cdi.services_1.0.40.jar=583ae4f57f0d6a9c06bf33ed916af7be
-lib/com.ibm.ws.microprofile.config.1.1.cdi_1.0.40.jar=d4ac0a3cd0c32711d37b8260051181f4
-lib/features/com.ibm.websphere.appserver.mpConfig1.4-cdi1.2.mf=0b2a1822d0dbbaa8602b7f27307e6aaf
-lib/com.ibm.ws.microprofile.config.1.2.cdi_1.0.40.jar=b6a56a840af3bf05c9647155398648f5
-lib/com.ibm.ws.microprofile.config.1.4.cdi_1.0.40.jar=15e806d28f72f45fe59b0d000c073d07
+#Tue Jun 09 09:52:21 CEST 2020
+lib/com.ibm.ws.microprofile.config.1.4.cdi.services_1.0.41.jar=6100b0aa0bb24fb0ceca38bb77609950
+lib/com.ibm.ws.microprofile.config.1.1.cdi_1.0.41.jar=c74b2c6649f3cdcb874f4cb85f142522
+lib/com.ibm.ws.microprofile.config.1.2.cdi_1.0.41.jar=9457d42e680cc139d20fb1c670b16d94
+lib/features/com.ibm.websphere.appserver.mpConfig1.4-cdi1.2.mf=9083661720c770cd169c3359d91c5347
+lib/com.ibm.ws.microprofile.config.1.4.cdi_1.0.41.jar=b147c56b322a97b42157fde7f8f77e3d

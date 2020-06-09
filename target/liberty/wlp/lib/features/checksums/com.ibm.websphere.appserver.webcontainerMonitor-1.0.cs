@@ -1,3 +1,3 @@
-#Thu Jun 04 16:45:02 CEST 2020
-lib/features/com.ibm.websphere.appserver.webcontainerMonitor-1.0.mf=0dc1bd132f418ed235a14a4029d290b4
-lib/com.ibm.ws.webcontainer.monitor_1.0.40.jar=a3445377aead5769c99323e0101242a4
+#Tue Jun 09 09:52:24 CEST 2020
+lib/features/com.ibm.websphere.appserver.webcontainerMonitor-1.0.mf=e388030976b37a3dc340a1084c6c1775
+lib/com.ibm.ws.webcontainer.monitor_1.0.41.jar=59f06bb3d5b7b32c0895197336c7205f

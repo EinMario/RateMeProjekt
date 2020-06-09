@@ -1,3 +1,3 @@
-#Thu Jun 04 16:44:47 CEST 2020
-dev/api/spec/com.ibm.websphere.javaee.cdi.2.0_1.0.40.jar=8930ead1e455e0f2c544f14aa72597db
-lib/features/com.ibm.websphere.appserver.javax.cdi-2.0.mf=657a60db64ce339b5725cb871486e031
+#Tue Jun 09 09:52:08 CEST 2020
+dev/api/spec/com.ibm.websphere.javaee.cdi.2.0_1.0.41.jar=8780717ad84732620056a387cc742680
+lib/features/com.ibm.websphere.appserver.javax.cdi-2.0.mf=f2a48c26ad7dde4f876470220813e441
