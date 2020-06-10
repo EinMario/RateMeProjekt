@@ -5,15 +5,10 @@ import hskl.swtp.rateme.model.AccessManager;
 import hskl.swtp.rateme.model.User;
 
 import javax.crypto.SecretKeyFactory;
-import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.PBEKeySpec;
-import javax.enterprise.inject.New;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.math.BigInteger;
@@ -32,6 +27,16 @@ public class UserController {
     @Inject
     AccessManager acManager;
 
+    @GET
+    @Path("/login")
+    public Response checkLogin(@CookieParam("LoginID") String loginID){
+        if(acManager.isLoggedIn(UUID.fromString(loginID))){
+            return Response.status(200).build();
+        }else {
+            return Response.status(404).build();
+        }
+    }
+
     @POST
     @Path("/login/{login}")
     //user:password
@@ -44,14 +49,10 @@ public class UserController {
         String username = input[0];
         String password = input[1];
 
-        if(existingUser.contains(username)){
-            if(dbAccess.validatePassword(username,password)){
-                UUID uuid = acManager.login(username);
-                NewCookie loginCookie = new NewCookie("LoginID",uuid.toString());
-                return Response.status(200).cookie(loginCookie).build();
-            }else{
-                return Response.status(404).build();
-            }
+        if(existingUser.contains(username) && dbAccess.validatePassword(username,password)){
+            UUID uuid = acManager.login(username);
+            NewCookie loginCookie = new NewCookie("LoginID",uuid.toString());
+            return Response.status(200).cookie(loginCookie).build();
         }else{
             return Response.status(404).build();
         }
@@ -70,7 +71,6 @@ public class UserController {
 
     @POST()
     @Path("/register/{register}")
-    @Produces("text/plain")
     public Response createUser(@PathParam("register") String register) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         String[] input = register.split(":");
@@ -83,8 +83,6 @@ public class UserController {
         String mail = input[6];
         String username = input[7];
         String password = input[8];
-
-        System.out.println(input);
 
         List<String> existingUser = dbAccess.getAllUser();
 

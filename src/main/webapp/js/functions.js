@@ -4,7 +4,7 @@ let mymap;
 let redIcon;
 let blueIcon;
 //Application state
-let selectedMarker;
+var selectedMarker;
 
 window.onload = function()
 {
@@ -33,7 +33,7 @@ window.onload = function()
             shadowSize : [ 41, 41 ]
         });
 
-        blueIcon = new L.Icon({
+    blueIcon = new L.Icon({
             iconUrl: './icon/marker-icon-blue.png',
             shadowUrl: './icon/marker-shadow.png',
             iconSize : [ 25, 41 ],
@@ -47,22 +47,18 @@ window.onload = function()
 
 function showRegistration() {
 	document.querySelector("#registration").style.display = "block";
-    //document.getElementById("registration").style.display = "block";
 }
 
 function hideRegistration() {
 	document.querySelector("#registration").style.display = "none";
-    //document.getElementById("registration").style.display = "none";
 }
 
 function showTable() {
 	document.querySelector("#table").style.display = "block";
-    //document.getElementById("registration").style.display = "block";
 }
 
 function hideTable() {
 	document.querySelector("#table").style.display = "none";
-    //document.getElementById("registration").style.display = "none";
 }
 
 function decode_utf8(s) {
@@ -94,20 +90,18 @@ function poiSelectionCallback(poi)
         if (selectedMarker != null) { selectedMarker.setIcon(blueIcon);}
         selectedMarker = event.target;
         selectedMarker.setIcon(redIcon);
-        console.log("Event" );
-        console.log( event );
-        console.log("Poi" );
-        console.log( poi );
+
 
         poi.poiTags.forEach( item => {
             if(item.tag == "name"){
                 document.querySelector("#name").innerHTML = item.value;
             }
-            console.log( item.tag + " " + item.value );
+
             document.querySelector("#table").innerHTML += "<tr> <td>" + item.tag + "</td> <td id=\"info\">  " + item.value + "</td> </tr>";
           } );
         document.querySelector("#side").innerHTML += " </table>";
         document.querySelector("#table").innerHTML += "<button id=\"Abbrechen\" onclick=\"hideTable()\">Schließen</button>";
     }
 }
+
 

@@ -31,6 +31,21 @@ public class Rating {
 		this.setCreate(s);
 		this.setModify(s);
 	}
+	public Rating(int userId, long osmId, String ratingType, int grade, String txt, String imagePath) {
+		super();
+		this.userId = userId;
+		this.osmId = osmId;
+		this.ratingType = ratingType;
+		this.grade = grade;
+		this.txt = txt;
+		this.imagePath = imagePath;
+
+		java.util.Date d = new Date();
+		Timestamp s = new Timestamp(d.getTime());
+
+		this.setCreate(s);
+		this.setModify(s);
+	}
 	
 	public Rating(int ratingId, int userId, long osmId, String ratingType, int grade, String txt, String imagePath,
 				  Timestamp create, Timestamp modify) {

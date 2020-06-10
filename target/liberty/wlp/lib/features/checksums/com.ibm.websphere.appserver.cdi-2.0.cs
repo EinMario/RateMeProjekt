@@ -1,4 +1,4 @@
-#Tue Jun 09 11:19:55 CEST 2020
+#Wed Jun 10 22:45:33 CEST 2020
 dev/api/ibm/schema/ibm-managed-bean-bnd_1_0.xsd=3b0b778a121ff7c6c28f9e72afd96488
 dev/api/spec/com.ibm.websphere.javaee.jaxb.2.2_1.0.41.jar=ae85b7bc5f946922452d3b1e3de2692f
 lib/com.ibm.ws.org.jboss.logging_1.0.41.jar=358d1b2751c24d0ff9403493204e8667

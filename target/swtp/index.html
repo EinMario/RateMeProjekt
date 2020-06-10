@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Kneipenbewertung</title>
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/grading.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
 	integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
@@ -14,9 +15,9 @@
 	crossorigin=""></script>
 
 <script src="js/functions.js"></script>
-
 <script src="js/check.js"></script>
 <script src="js/user.js"></script>
+<script src="js/rating.js"></script>
 
 </head>
 <body>
@@ -24,8 +25,8 @@
 		<header>
 
 				<div id="loginStatus">
-					<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required /></span>
-					<span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required /></span>
+					<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required value="Fred"/></span>
+					<span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required value="asdasdasd1"/></span>
 					<button type="button" style="width: 100px;" onclick="login()">Anmelden</button>
 
 				<span style="float: right; white-space: nowrap"> <a href="javascript:showRegistration()">
@@ -34,8 +35,12 @@
 
 		</header>
 		<article><div id="mapid" style="height:100%;"></div></article>
-		<aside id="side"><h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></aside>
-		<footer> Hier stehen später die gemachten Bewertungen<button type="button" style="width: 100px;" onclick="logout()">Logout</button> </footer>
+		<aside>
+			<div id="side"><h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></div>
+			<div id="createRating"></div>
+			<div id="ratings"></div>
+		</aside>
+		<footer> Hier stehen später die gemachten Bewertungen</footer>
 	</div>
 </body>
 

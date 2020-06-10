@@ -1,4 +1,4 @@
-#Tue Jun 09 11:19:55 CEST 2020
+#Wed Jun 10 22:45:33 CEST 2020
 lib/features/com.ibm.wsspi.appserver.webBundleSecurity-1.0.mf=dbf66a60762c5f623b0788ef2516e882
 lib/com.ibm.ws.security.authorization.builtin_1.0.41.jar=501996e0b55386c5fdbd2f5b1addee8e
 lib/com.ibm.ws.webcontainer.security.feature_1.0.41.jar=86b1bfbf15815e8be967b35fa70c3e92

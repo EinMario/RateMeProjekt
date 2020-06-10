@@ -9,6 +9,7 @@ hskl\swtp\rateme\model\User.class
 hskl\swtp\rateme\db\UserDB.class
 hskl\swtp\rateme\model\RatemeDbException.class
 hskl\swtp\rateme\Main.class
+hskl\swtp\rateme\api\RatingController.class
 hskl\swtp\rateme\model\Poi.class
 hskl\swtp\rateme\api\TestController.class
 hskl\swtp\SwtpRestApplication.class

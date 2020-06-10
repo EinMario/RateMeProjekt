@@ -65,6 +65,8 @@ public class UserDB {
 			 
 			  try (ResultSet rs = pstmt.executeQuery())
 		         {
+		         	rs.next();
+
 				  	User u = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),
 							rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),
 							rs.getString(10),rs.getTimestamp(11),rs.getTimestamp(12));
@@ -84,14 +86,13 @@ public class UserDB {
 
 			try (ResultSet rs = pstmt.executeQuery())
 			{
-				if(rs != null){
+				rs.next();
+
 				User u = new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
 						rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),
 						rs.getTimestamp(11),rs.getTimestamp(12));
 				return u;
-				}else{
-					return null;
-				}
+
 			}
 		} catch (SQLException ex)
 		{
