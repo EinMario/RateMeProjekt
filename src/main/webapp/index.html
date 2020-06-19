@@ -23,8 +23,7 @@
 <body>
 	<div class="mainContainer">
 		<header>
-
-				<div id="loginStatus">
+			<div id="loginStatus">
 					<span style="white-space: nowrap"> Benutzer: <input id="userNameLogin" type="text" name="userName" required value="Fred"/></span>
 					<span style="white-space: nowrap"> Password: <input id="passwordLogin" type="password" name="password" required value="asdasdasd1"/></span>
 					<button type="button" style="width: 100px;" onclick="login()">Anmelden</button>
@@ -39,11 +38,13 @@
 			<div id="side"><h3>Hier sind  die Infos zur ausgewählten Kneipe</h3><br/></div>
 			<div id="createRating"></div>
 			<div id="ratings"></div>
+			<img id="img" src="">
 		</aside>
-		<footer> Hier stehen später die gemachten Bewertungen</footer>
+		<footer id="ownRatings"> </footer>
 	</div>
 </body>
 
+<canvas id="canvas" style="display : none"></canvas>
 <div id="registration" style="display : none">
 	<h3>Registrierung</h3>
 	<table>
@@ -97,6 +98,5 @@
 
 	<canvas id="canvasPW"  width="80" height="10" style="border: 1px solid #d3d3d3;"></canvas>
 </div>
-
 </html>
 <!-- Fred , asdasdasd1 -->

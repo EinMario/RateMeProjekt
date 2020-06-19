@@ -13,9 +13,8 @@ public class ZipController  {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllZip(@PathParam("zip") String zip) {
+    public Response getAllZip(@PathParam("zip") String userInput){
         Client client = ClientBuilder.newClient();
-        Response response = client.target("http://escher.informatik.hs-kl.de/PlzService/ort?plz=" + zip) .request(MediaType.APPLICATION_JSON) .get();
-        return response;
+        return  client.target("http://escher.informatik.hs-kl.de/PlzService/ort?plz="+userInput).request(MediaType.APPLICATION_JSON).get();
     }
 }

@@ -1,15 +1,15 @@
 package hskl.swtp.rateme.api;
 
 import hskl.swtp.rateme.db.PoiDB;
+import hskl.swtp.rateme.db.PoiTagDB;
 import hskl.swtp.rateme.db.RatingDB;
 import hskl.swtp.rateme.db.UserDB;
-import hskl.swtp.rateme.model.Poi;
-import hskl.swtp.rateme.model.Rating;
-import hskl.swtp.rateme.model.User;
+import hskl.swtp.rateme.model.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
 
@@ -25,35 +25,82 @@ public class RatingController {
     @Inject
     UserDB userDB;
 
-    @Path("/{stars}/{comment}/{pic}/{user}/{marker}")
+    @Inject
+    PoiTagDB poiTagDB;
+
     @POST
-    public Response createRating(@PathParam("stars") String stars,
-                                 @PathParam("comment") String comment,
-                                 @PathParam("pic") String pic,
-                                 @PathParam("user") String user,
-                                 @PathParam("marker") String markerPOS){
-        System.out.println(stars);
-        System.out.println(comment);
-        System.out.println(pic);
-        System.out.println(user);
-        System.out.println(markerPOS);
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/{marker}")
+    public Response create(CreateRating rating,@PathParam("marker")String pos){
 
-        //text
-        //RatingType
-        //Stars
-        String ratingType;
-        int ratingStars = Integer.parseInt(stars);
+        String ratingType = getType(rating.getStars());
 
-        ratingType = getType(ratingStars);
+        //Osm Id
+        Long osmId = getOsmIDFromLatLon(pos);
 
-        String[] position = getLatLon(markerPOS);
+        if(osmId == null) return Response.status(404).build();
+
+        //UserId
+        User author = userDB.loadUser(rating.getUser());
+
+        if(rating.getPic() != null && rating.getPic().equals("null"))
+            rating.setPic("");
+
+        Rating finalRating = new Rating(author.getId(),osmId,ratingType,rating.getStars(),rating.getTxt(),rating.getPic());
+
+        if(ratingDB.createRating(finalRating) == 1 ){
+            return Response.status(200).build();
+        }else{
+            return Response.status(404).build();
+        }
+    }
+
+    @GET
+    @Path("/{user}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUserRatings(@PathParam("user")String username){
+        //User Id
+        User author = userDB.loadUser(username);
+
+        Collection<Rating> ratings = ratingDB.loadRatingsForUser(author.getId());
+        for(Rating e : ratings){
+            Collection<PoiTag> poiTags = poiTagDB.loadTagsForPoi(e.getOsmId());
+            for(PoiTag f : poiTags){
+                if(f.getTag().equals("name")){
+                    e.setOsmName(f.getValue());
+                }
+            }
+        }
+        return Response.status(200).entity(ratings).build();
+    }
+
+    @GET
+    @Path("/poi/{markerPOS}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPoiRatings(@PathParam("markerPOS") String markerPOS){
+        Long osmID = getOsmIDFromLatLon(markerPOS);
+        if(osmID == null)
+            return Response.status(404).build();
+
+        Collection<Rating> ratings = ratingDB.loadRatingsForPoi(osmID);
+
+        for (Rating e : ratings){
+            User u = userDB.loadUser(e.getUserId());
+            e.setCreatorName(u.getUsername());
+        }
+
+        return Response.status(200).entity(ratings).build();
+    }
+
+
+    private Long getOsmIDFromLatLon(String markerPOS) {
+        String help = markerPOS.replace("{\"lat\":","");
+        String help2 = help.replace("\"lng\":","");
+        String help3 = help2.replace("}","");
+        String[] position = help3.split(",");
 
         double lat = Double.parseDouble(position[0]);
         double lon = Double.parseDouble(position[1]);
-
-        //UserId
-        User author = userDB.loadUser(user);
-
         //OsmID
         Long osmId = null;
         Collection<Poi> allPois = poiDB.loadPois();
@@ -64,21 +111,7 @@ public class RatingController {
             }
         }
 
-        if(osmId == null) return Response.status(404).build();
-
-
-
-        Rating rating = new Rating(author.getId(),osmId,ratingType,ratingStars,comment,"");
-        System.out.println(rating.toString());
-        return null;
-    }
-
-    private String[] getLatLon(String markerPOS) {
-        String help = markerPOS.replace("{\"lat\":","");
-        String help2 = help.replace("\"lng\":","");
-        String help3 = help2.replace("}","");
-
-        return help3.split(",");
+        return osmId;
     }
 
     private String getType(int ratingStars) {

@@ -90,7 +90,7 @@ public class UserController {
             return Response.status(404).build();
         }else{
 
-            String hashedPassword = getHashedPassword(password,username);
+            String hashedPassword = dbAccess.getHashedPassword(password,username);
 
             User newUser = new User(username,mail,firstname,lastname,street,streetnr,zip,city,hashedPassword);
 
@@ -98,31 +98,5 @@ public class UserController {
 
             return Response.status(200).build();
         }
-    }
-
-
-    private static String toHex(byte[] array)
-    {
-        BigInteger bi = new BigInteger(1, array);
-        String hex = bi.toString(16);
-        int paddingLength = (array.length * 2) - hex.length();
-        if(paddingLength > 0)
-        {
-            return String.format("%0"  +paddingLength + "d", 0) + hex;
-        }else{
-            return hex;
-        }
-    }
-
-    private static String getHashedPassword(String password,String username) throws NoSuchAlgorithmException, InvalidKeySpecException
-    {
-        char[] chars = password.toCharArray();
-        byte[] salt = username.getBytes();
-
-        PBEKeySpec spec = new PBEKeySpec(chars, salt, 1000, 64 * 8);
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        byte[] hash = skf.generateSecret(spec).getEncoded();
-
-        return  toHex(salt) + ":" + toHex(hash);
     }
 }

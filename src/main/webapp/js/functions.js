@@ -99,8 +99,10 @@ function poiSelectionCallback(poi)
 
             document.querySelector("#table").innerHTML += "<tr> <td>" + item.tag + "</td> <td id=\"info\">  " + item.value + "</td> </tr>";
           } );
-        document.querySelector("#side").innerHTML += " </table>";
-        document.querySelector("#table").innerHTML += "<button id=\"Abbrechen\" onclick=\"hideTable()\">Schließen</button>";
+        document.querySelector("#side").innerHTML += " </table> <br>";
+        document.querySelector("#table").innerHTML += "<button id=\"Abbrechen\" onclick=\"hideTable()\">Schließen</button> ";
+
+        getRatingsForPoi(JSON.stringify(selectedMarker._latlng));
     }
 }
 

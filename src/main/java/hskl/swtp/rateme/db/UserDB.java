@@ -164,7 +164,7 @@ public class UserDB {
 		}
 	}
 
-	private static String getHashedPassword(String password,String username) throws NoSuchAlgorithmException, InvalidKeySpecException
+	public static String getHashedPassword(String password,String username) throws NoSuchAlgorithmException, InvalidKeySpecException
 	{
 		char[] chars = password.toCharArray();
 		byte[] salt = username.getBytes();

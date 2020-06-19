@@ -4,6 +4,7 @@ hskl\swtp\rateme\api\UserController.class
 hskl\swtp\rateme\db\RatingDB.class
 hskl\swtp\rateme\db\DBConnection.class
 hskl\swtp\rateme\db\PoiTagDB.class
+hskl\swtp\rateme\model\CreateRating.class
 hskl\swtp\rateme\db\PoiDB.class
 hskl\swtp\rateme\model\User.class
 hskl\swtp\rateme\db\UserDB.class

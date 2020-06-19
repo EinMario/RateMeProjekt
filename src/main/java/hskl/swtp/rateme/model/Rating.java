@@ -5,146 +5,178 @@ import java.util.Date;
 
 public class Rating {
 
-	private int ratingId;
-	private int userId;
-	private long osmId;
-	private String ratingType;
-	private int grade;
-	private String txt;
-	private String imagePath;
-	private Timestamp create;
-	private Timestamp modify;
+    private int ratingId;
+    private int userId;
+    private long osmId;
+    private String ratingType;
+    private int grade;
+    private String txt;
+    private String imagePath;
+    private Timestamp create;
+    private Timestamp modify;
+    private String osmName;
+    private String creatorName;
 
-	public Rating(int ratingId, int userId, long osmId, String ratingType, int grade, String txt, String imagePath) {
-		super();
-		this.ratingId = ratingId;
-		this.userId = userId;
-		this.osmId = osmId;
-		this.ratingType = ratingType;
-		this.grade = grade;
-		this.txt = txt;
-		this.imagePath = imagePath;
 
-		java.util.Date d = new Date();
-		Timestamp s = new Timestamp(d.getTime());
+    public Rating() {
+    }
 
-		this.setCreate(s);
-		this.setModify(s);
-	}
-	public Rating(int userId, long osmId, String ratingType, int grade, String txt, String imagePath) {
-		super();
-		this.userId = userId;
-		this.osmId = osmId;
-		this.ratingType = ratingType;
-		this.grade = grade;
-		this.txt = txt;
-		this.imagePath = imagePath;
 
-		java.util.Date d = new Date();
-		Timestamp s = new Timestamp(d.getTime());
+    public Rating(int ratingId, int userId, long osmId, String ratingType, int grade, String txt, String imagePath) {
+        super();
+        this.ratingId = ratingId;
+        this.userId = userId;
+        this.osmId = osmId;
+        this.ratingType = ratingType;
+        this.grade = grade;
+        this.txt = txt;
+        this.imagePath = imagePath;
+        this.osmName = null;
+        this.creatorName = null;
 
-		this.setCreate(s);
-		this.setModify(s);
-	}
-	
-	public Rating(int ratingId, int userId, long osmId, String ratingType, int grade, String txt, String imagePath,
-				  Timestamp create, Timestamp modify) {
-		super();
-		this.ratingId = ratingId;
-		this.userId = userId;
-		this.osmId = osmId;
-		this.ratingType = ratingType;
-		this.grade = grade;
-		this.txt = txt;
-		this.imagePath = imagePath;
-		this.create = create;
-		this.modify = modify;
-	}
+        java.util.Date d = new Date();
+        Timestamp s = new Timestamp(d.getTime());
 
-	public int getRatingId() {
-		return ratingId;
-	}
+        this.setCreate(s);
+        this.setModify(s);
+    }
 
-	public void setRatingId(int ratingId) {
-		this.ratingId = ratingId;
-	}
+    public Rating(int userId, long osmId, String ratingType, int grade, String txt, String imagePath) {
+        super();
+        this.userId = userId;
+        this.osmId = osmId;
+        this.ratingType = ratingType;
+        this.grade = grade;
+        this.txt = txt;
+        this.imagePath = imagePath;
+        this.osmName = null;
+        this.creatorName = null;
 
-	public int getUserId() {
-		return userId;
-	}
+        java.util.Date d = new Date();
+        Timestamp s = new Timestamp(d.getTime());
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+        this.setCreate(s);
+        this.setModify(s);
+    }
 
-	public long getOsmId() {
-		return osmId;
-	}
+    public Rating(int ratingId, int userId, long osmId, String ratingType, int grade, String txt, String imagePath,
+                  Timestamp create, Timestamp modify) {
+        super();
+        this.ratingId = ratingId;
+        this.userId = userId;
+        this.osmId = osmId;
+        this.ratingType = ratingType;
+        this.grade = grade;
+        this.txt = txt;
+        this.imagePath = imagePath;
+        this.create = create;
+        this.modify = modify;
+        this.osmName = null;
+        this.creatorName = null;
+    }
 
-	public void setOsmId(long osmId) {
-		this.osmId = osmId;
-	}
+    public int getRatingId() {
+        return ratingId;
+    }
 
-	public String getRatingType() {
-		return ratingType;
-	}
+    public void setRatingId(int ratingId) {
+        this.ratingId = ratingId;
+    }
 
-	public void setRatingType(String ratingType) {
-		this.ratingType = ratingType;
-	}
+    public int getUserId() {
+        return userId;
+    }
 
-	public int getGrade() {
-		return grade;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+    public long getOsmId() {
+        return osmId;
+    }
 
-	public String getTxt() {
-		return txt;
-	}
+    public void setOsmId(long osmId) {
+        this.osmId = osmId;
+    }
 
-	public void setTxt(String txt) {
-		this.txt = txt;
-	}
+    public String getRatingType() {
+        return ratingType;
+    }
 
-	public String getImagePath() {
-		return imagePath;
-	}
+    public void setRatingType(String ratingType) {
+        this.ratingType = ratingType;
+    }
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
+    public int getGrade() {
+        return grade;
+    }
 
-	public Timestamp getCreate() {
-		return create;
-	}
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
-	public void setCreate(Timestamp create) {
-		this.create = create;
-	}
+    public String getTxt() {
+        return txt;
+    }
 
-	public Timestamp getModify() {
-		return modify;
-	}
+    public void setTxt(String txt) {
+        this.txt = txt;
+    }
 
-	public void setModify(Timestamp modify) {
-		this.modify = modify;
-	}
+    public String getImagePath() {
+        return imagePath;
+    }
 
-	@Override
-	public String toString() {
-		return "Rating{" +
-				"ratingId=" + ratingId +
-				", userId=" + userId +
-				", osmId=" + osmId +
-				", ratingType='" + ratingType + '\'' +
-				", grade=" + grade +
-				", txt='" + txt + '\'' +
-				", imagePath='" + imagePath + '\'' +
-				", create=" + create +
-				", modify=" + modify +
-				'}';
-	}
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Timestamp getCreate() {
+        return create;
+    }
+
+    public void setCreate(Timestamp create) {
+        this.create = create;
+    }
+
+    public Timestamp getModify() {
+        return modify;
+    }
+
+    public void setModify(Timestamp modify) {
+        this.modify = modify;
+    }
+
+    public String getOsmName() {
+        return osmName;
+    }
+
+    public void setOsmName(String osmName) {
+        this.osmName = osmName;
+    }
+
+
+    public String getCreatorName() {
+        return creatorName;
+    }
+
+    public void setCreatorName(String creatorName) {
+        this.creatorName = creatorName;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "ratingId=" + ratingId +
+                ", userId=" + userId +
+                ", osmId=" + osmId +
+                ", ratingType='" + ratingType + '\'' +
+                ", grade=" + grade +
+                ", txt='" + txt + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                ", create=" + create +
+                ", modify=" + modify +
+                '}';
+    }
 }

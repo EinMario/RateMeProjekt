@@ -11,8 +11,8 @@ import java.security.spec.InvalidKeySpecException;
 public class Main {
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException, UnsupportedEncodingException {
 
-       String a = test("password","fred");
-       String v = test("password","freddy");
+       String a = test("passworD","fred");
+       String v = test("password","fred");
         System.out.println(a);
         System.out.println(a.length());
 

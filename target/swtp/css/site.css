@@ -49,6 +49,7 @@ aside {
 	border-bottom: 2px solid #fff;
     background:#F3E2A9;
     grid-area: rating;
+    overflow:scroll;
 }
 
 footer {
@@ -56,6 +57,7 @@ footer {
 	border-bottom: 2px solid #fff;
     background: #D8D8D8;
     grid-area: userRating;
+    overflow:scroll;
 }
 
 #bewertungsDiv {

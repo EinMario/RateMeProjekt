@@ -48,7 +48,7 @@ public class RatingDB {
 	      } catch (SQLException ex)
 	      {
 	         ex.printStackTrace();
-	         throw new RatemeDbException("ERROR createUser", ex);
+	         throw new RatemeDbException("ERROR createRating", ex);
 	      }
 	}
 	

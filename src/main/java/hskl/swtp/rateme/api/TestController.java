@@ -28,6 +28,4 @@ public class TestController {
         System.out.println("Test");
         return "ja";//abc+db.getAllUser().toString();
     }
-
-
 }
