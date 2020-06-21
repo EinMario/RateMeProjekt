@@ -1,7 +1,6 @@
 
 var loggedIn = false;
 var loggedInUser;
-var base64Image = null;
 /*
 window.onload = function()
 {

@@ -1,3 +1,3 @@
-#Fri Jun 19 20:06:51 CEST 2020
+#Sun Jun 21 16:10:01 CEST 2020
 lib/features/com.ibm.websphere.appserver.dynamicBundle-1.0.mf=667f1bf71759632a80cba8bcb1f7b368
 lib/com.ibm.ws.dynamic.bundle_1.0.41.jar=034b0f2331429f5fbf658295d26f25aa

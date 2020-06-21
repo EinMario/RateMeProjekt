@@ -1,4 +1,4 @@
-#Fri Jun 19 20:06:58 CEST 2020
+#Sun Jun 21 16:10:08 CEST 2020
 lib/features/com.ibm.websphere.appserver.adminSecurity-1.0.mf=35a3c06aabaa3054063db8aa68bbf2e7
 lib/com.ibm.ws.webcontainer.security_1.0.41.jar=106118046e43f5323f79c3dc1327bee1
 lib/com.ibm.ws.security.authentication.tai_1.0.41.jar=d138151fd67e7e3290f7acf4b6de6cf0

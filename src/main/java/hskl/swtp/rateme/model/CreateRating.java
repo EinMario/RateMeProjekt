@@ -10,13 +10,7 @@ public class CreateRating {
     public CreateRating() {
     }
 
-    public CreateRating(String user, String txt, int stars, String pic, String pos) {
-        this.user = user;
-        this.txt = txt;
-        this.stars = stars;
-        this.pic = pic;
-        this.pos = pos;
-    }
+
 
     public String getUser() {
         return user;

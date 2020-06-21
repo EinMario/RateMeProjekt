@@ -1,4 +1,4 @@
-#Fri Jun 19 20:06:51 CEST 2020
+#Sun Jun 21 16:10:01 CEST 2020
 lib/features/com.ibm.websphere.appserver.anno-1.0.mf=e0538220cefc848f12c2f03cbbfbe7e5
 dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.anno_1.1-javadoc.zip=91dca48a4f849886ecadb5455d438492
 dev/spi/ibm/com.ibm.websphere.appserver.spi.anno_1.1.41.jar=425ee5d6b3e08058d4fadd9e16ba7a68

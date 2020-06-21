@@ -33,6 +33,8 @@ public class RatingController {
     @Path("/{marker}")
     public Response create(CreateRating rating,@PathParam("marker")String pos){
 
+        if(rating.getTxt().contains("</script>") ||rating.getTxt().contains("<script")) return Response.status(404).build();
+
         String ratingType = getType(rating.getStars());
 
         //Osm Id
@@ -45,6 +47,7 @@ public class RatingController {
 
         if(rating.getPic() != null && rating.getPic().equals("null"))
             rating.setPic("");
+
 
         Rating finalRating = new Rating(author.getId(),osmId,ratingType,rating.getStars(),rating.getTxt(),rating.getPic());
 

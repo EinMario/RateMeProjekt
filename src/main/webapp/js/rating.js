@@ -1,3 +1,4 @@
+var base64Image = null;
 function rate() {
     let star5 = document.querySelector("#star5");
     let star4 = document.querySelector("#star4");
@@ -13,7 +14,6 @@ function rate() {
     if(star2.checked) givenStars = 2;
     if(star1.checked) givenStars = 1;
 
-    console.log(selectedMarker);
     if(givenStars == 0) return;
 
     let comment = document.querySelector("#ratingText").value;
@@ -25,11 +25,12 @@ function rate() {
     let data = {    user : loggedInUser,
                     txt : comment,
                     stars : givenStars,
-                    pic : base64Image,
-                    pos : selectedMarker._latlng
+                    pic : base64Image
     }
 
-    fetch('rateme/rating/'+JSON.stringify(selectedMarker._latlng), {
+
+
+   fetch('rateme/rating/'+JSON.stringify(selectedMarker._latlng), {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body:JSON.stringify(data)
@@ -43,29 +44,23 @@ function rate() {
                                         document.querySelector("#star2").checked =false;
                                         document.querySelector("#star1").checked =false;
                                         document.querySelector("#ratingText").value="";
-
+                                        document.querySelector("#output") = null;
                                     }
                               } )
                .catch( error => console.error('Error:', error));
-
 }
 
 var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);
-    console.log(image);
 	var can = document.getElementById('canvas');
     var ctx = can.getContext("2d");
     ctx.drawImage(image, 10, 10);
 
 
-
 	toDataURL(image.src, function(dataUrl) {
       base64Image = dataUrl;
-    })
-
-
-
+    });
 };
 function toDataURL(url, callback) {
   var xhr = new XMLHttpRequest();
