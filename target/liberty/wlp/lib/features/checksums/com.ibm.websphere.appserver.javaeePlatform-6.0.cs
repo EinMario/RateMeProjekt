@@ -1,4 +1,4 @@
-#Sun Jun 21 16:10:01 CEST 2020
+#Wed Jul 01 15:03:23 CEST 2020
 lib/features/com.ibm.websphere.appserver.javaeePlatform-6.0.mf=fa80423810894eb523c85963f5b69ac4
 lib/com.ibm.ws.security.java2sec_1.0.41.jar=f55059e02d9ea7c1f60e66ac1e6ae838
 lib/com.ibm.ws.javaee.version_1.0.41.jar=b89aa307807000b63ce01dd686711265

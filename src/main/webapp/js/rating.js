@@ -45,11 +45,14 @@ function rate() {
                                         document.querySelector("#star1").checked =false;
                                         document.querySelector("#ratingText").value="";
                                         document.querySelector("#output") = null;
+                                    }else{
+                                        alert("Fehler bei der Erstellung einer Bewertung");
                                     }
                               } )
                .catch( error => console.error('Error:', error));
 }
-
+// Inspiration durch
+// https://stackoverflow.com/questions/6150289/how-can-i-convert-an-image-into-base64-string-using-javascript
 var loadFile = function(event) {
 	var image = document.getElementById('output');
 	image.src = URL.createObjectURL(event.target.files[0]);

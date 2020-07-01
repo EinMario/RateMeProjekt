@@ -287,6 +287,11 @@ function register(){
     if(streetBool && streetNrBool && cityBool && userBool){
         var text =firstname +":" + lastname+":" +street+":" +streetNr+":" +zip+":" +city+":" +email+":" +username+":" + password  +";";
 
+        if(text.includes("<script") || text.includes("</script")){
+            document.querySelector("#errorLog").innerHTML += "ERROR";
+            return;
+        }
+
         fetch('rateme/user/register/'+text,   {
             method: 'post',
             body: text

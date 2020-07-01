@@ -5,7 +5,6 @@ public class CreateRating {
     String txt;
     int stars;
     String pic;
-    String pos;
 
     public CreateRating() {
     }
@@ -44,11 +43,4 @@ public class CreateRating {
         this.pic = pic;
     }
 
-    public String getPos() {
-        return pos;
-    }
-
-    public void setPos(String pos) {
-        this.pos = pos;
-    }
 }

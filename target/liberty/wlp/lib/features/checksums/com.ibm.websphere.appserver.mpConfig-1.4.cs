@@ -1,4 +1,4 @@
-#Sun Jun 21 16:10:07 CEST 2020
+#Wed Jul 01 15:03:36 CEST 2020
 lib/com.ibm.ws.require.java8_1.0.41.jar=3356ee880ce2788f173334214617d492
 lib/com.ibm.ws.microprofile.config.1.4_1.0.41.jar=dc8d74b5840e4de406aa04414b6caedd
 lib/com.ibm.ws.microprofile.config.1.3_1.0.41.jar=084fa11bbc5ea8d45c44d2983a94eedc

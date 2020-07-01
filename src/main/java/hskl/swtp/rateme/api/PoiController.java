@@ -21,7 +21,6 @@ public class PoiController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPoi() {
-        System.out.println("getAllPoi");
         Collection<Poi> allPoi = poiDB.loadPois();
         return Response.ok().entity(allPoi).build();
     }

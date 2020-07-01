@@ -95,7 +95,7 @@ public class RatingController {
         return Response.status(200).entity(ratings).build();
     }
 
-
+    //hilfsmethode pos -> osmId
     private Long getOsmIDFromLatLon(String markerPOS) {
         String help = markerPOS.replace("{\"lat\":","");
         String help2 = help.replace("\"lng\":","");

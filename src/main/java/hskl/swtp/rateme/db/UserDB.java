@@ -151,6 +151,8 @@ public class UserDB {
 		return false;
 	}
 
+	//Inspiration durch
+	//https://stackoverflow.com/questions/2860943/how-can-i-hash-a-password-in-java
 	private static String toHex(byte[] array)
 	{
 		BigInteger bi = new BigInteger(1, array);
